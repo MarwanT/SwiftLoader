@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
+      SwiftLoader.refreshIfNeeded()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
