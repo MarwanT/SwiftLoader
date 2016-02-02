@@ -122,6 +122,13 @@ public class SwiftLoader: UIView {
     loader.stop()
   }
   
+  public class func refreshIfNeeded() {
+    let loader = SwiftLoader.sharedInstance
+    if let spinning = loader.loadingView?.isSpinning where spinning {
+      loader.start()
+    }
+  }
+  
   public class func setConfig(config : Config) {
     let loader = SwiftLoader.sharedInstance
     loader.config = config
