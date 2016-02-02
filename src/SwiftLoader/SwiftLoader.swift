@@ -329,7 +329,7 @@ public class SwiftLoader: UIView {
     Start and stop spinning
     */    
     private func start() {
-      self.isSpinning? = true
+      self.isSpinning = true
       self.drawBackgroundCircle(true)
       
       let rotationAnimation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -344,7 +344,7 @@ public class SwiftLoader: UIView {
       self.drawBackgroundCircle(false)
       
       self.backgroundLayer?.removeAllAnimations()
-      self.isSpinning? = false
+      self.isSpinning = false
     }
   }
   
