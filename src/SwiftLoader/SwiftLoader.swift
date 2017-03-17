@@ -10,10 +10,6 @@ import UIKit
 import QuartzCore
 import CoreGraphics
 
-let loaderSpinnerMarginSide : CGFloat = 35.0
-let loaderSpinnerMarginTop : CGFloat = 20.0
-let loaderTitleMargin : CGFloat = 5.0
-
 open class SwiftLoader: UIView {
   
   fileprivate var coverView : UIView?
@@ -196,14 +192,14 @@ open class SwiftLoader: UIView {
     }
     
     if (self.titleLabel == nil) {
-      self.titleLabel = UILabel(frame: CGRect(x: loaderTitleMargin, y: yOffset, width: self.frame.width - loaderTitleMargin*2, height: height))
+      self.titleLabel = UILabel(frame: CGRect(x: config.loaderTitleMargin, y: yOffset, width: self.frame.width - config.loaderTitleMargin*2, height: height))
       self.addSubview(self.titleLabel!)
       self.titleLabel?.numberOfLines = 1
       self.titleLabel?.textAlignment = NSTextAlignment.center
       self.titleLabel?.adjustsFontSizeToFitWidth = true
       self.titleLabel?.minimumScaleFactor = 12.0 / UIFont.labelFontSize
     } else {
-      self.titleLabel?.frame = CGRect(x: loaderTitleMargin, y: yOffset, width: self.frame.width - loaderTitleMargin*2, height: height)
+      self.titleLabel?.frame = CGRect(x: config.loaderTitleMargin, y: yOffset, width: self.frame.width - config.loaderTitleMargin*2, height: height)
     }
     
     self.titleLabel?.font = self.config.titleTextFont
@@ -218,14 +214,14 @@ open class SwiftLoader: UIView {
     yOffset = self.titleLabel!.isHidden ? yOffset : self.titleLabel!.frame.height + self.titleLabel!.frame.origin.y
     
     if (self.subtitleLabel == nil) {
-      self.subtitleLabel = UILabel(frame: CGRect(x: loaderTitleMargin, y: yOffset, width: self.frame.width - loaderTitleMargin*2, height: height))
+      self.subtitleLabel = UILabel(frame: CGRect(x: config.loaderTitleMargin, y: yOffset, width: self.frame.width - config.loaderTitleMargin*2, height: height))
       self.addSubview(self.subtitleLabel!)
       self.subtitleLabel?.numberOfLines = 1
       self.subtitleLabel?.textAlignment = NSTextAlignment.center
       self.subtitleLabel?.adjustsFontSizeToFitWidth = true
       self.subtitleLabel?.minimumScaleFactor = 12.0 / UIFont.labelFontSize
     } else {
-      self.subtitleLabel?.frame = CGRect(x: loaderTitleMargin, y: yOffset, width: self.frame.width - loaderTitleMargin*2, height: height)
+      self.subtitleLabel?.frame = CGRect(x: config.loaderTitleMargin, y: yOffset, width: self.frame.width - config.loaderTitleMargin*2, height: height)
     }
     
     self.subtitleLabel?.font = self.config.subtitleTextFont
@@ -236,13 +232,13 @@ open class SwiftLoader: UIView {
   }
   
   func frameForSpinner() -> CGRect {
-    let loadingViewSize = self.frame.size.width - (loaderSpinnerMarginSide * 2)
+    let loadingViewSize = self.frame.size.width - (config.loaderSpinnerMarginSide * 2)
     
     if (self.title == nil && self.subtitle == nil) {
       let yOffset = (self.frame.size.height - loadingViewSize) / 2
-      return CGRect(x: loaderSpinnerMarginSide, y: yOffset, width: loadingViewSize, height: loadingViewSize)
+      return CGRect(x: config.loaderSpinnerMarginSide, y: yOffset, width: loadingViewSize, height: loadingViewSize)
     }
-    return CGRect(x: loaderSpinnerMarginSide, y: loaderSpinnerMarginTop, width: loadingViewSize, height: loadingViewSize)
+    return CGRect(x: config.loaderSpinnerMarginSide, y: config.loaderSpinnerMarginTop, width: loadingViewSize, height: loadingViewSize)
   }
   
   override init(frame: CGRect) {
@@ -375,6 +371,21 @@ open class SwiftLoader: UIView {
     *  S
     */
     public var spinnerLineWidth :Float = 1.0
+    
+    /**
+     *  Spinner side margin
+     */
+    public var loaderSpinnerMarginSide : CGFloat = 35.0
+    
+    /**
+     *  Spinner top margin
+     */
+    public var loaderSpinnerMarginTop : CGFloat = 20.0
+    
+    /**
+     *  Title margin
+     */
+    public var loaderTitleMargin : CGFloat = 5.0
     
     /**
     *  Color of title text
