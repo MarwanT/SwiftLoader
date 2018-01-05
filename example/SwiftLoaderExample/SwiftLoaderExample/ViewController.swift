@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         self.view.addSubview(actionButton)
     }
     
-    func actionShowLoader() {
+    @objc func actionShowLoader() {
         
         var config : SwiftLoader.Config = SwiftLoader.Config()
         config.size = 170
