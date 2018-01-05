@@ -250,7 +250,7 @@ open class SwiftLoader: UIView {
     super.init(coder: aDecoder)
   }
   
-  func tapGestureHandle(_ sender: UITapGestureRecognizer) {
+  @objc func tapGestureHandle(_ sender: UITapGestureRecognizer) {
     SwiftLoader.hide()
     self.dismissCompletionBlock?()
   }
