@@ -291,7 +291,7 @@ open class SwiftLoader: UIView {
       self.backgroundLayer = CAShapeLayer()
       self.backgroundLayer?.strokeColor = self.config.spinnerColor.cgColor
       self.backgroundLayer?.fillColor = self.backgroundColor?.cgColor
-      self.backgroundLayer?.lineCap = kCALineCapRound
+      self.backgroundLayer?.lineCap = CAShapeLayerLineCap.round
       self.backgroundLayer?.lineWidth = CGFloat(self.lineWidth!)
       self.layer.addSublayer(self.backgroundLayer!)
     }
